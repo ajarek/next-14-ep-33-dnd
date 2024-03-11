@@ -18,44 +18,8 @@ import { CSS } from '@dnd-kit/utilities'
 import { GripVertical } from 'lucide-react'
 import { useState } from 'react'
 import LinearGradient from '../components/LinearGradient'
-import {initialValue} from '../data'
-
-function SortableItem({ item }) {
-  const {
-    attributes,
-    listeners,
-    setNodeRef,
-    setActivatorNodeRef,
-    transform,
-    transition,
-  } = useSortable({
-    id: item.id,
-  })
-  const style = {
-    transform: CSS.Transform.toString(transform),
-    transition,
-  }
-  return (
-    <li
-      ref={setNodeRef}
-      style={style}
-      {...attributes}
-      className='p-2 flex gap-4 w-[250px]'
-    >
-      <div className='w-full select-none'>
-        <h1 className='text-3xl'>{item.title}</h1>
-        <p>{item.description}</p>
-      </div>
-      <div
-        {...listeners}
-        node={setActivatorNodeRef}
-        className='p-1 flex items-center cursor-grab hover:bg-gray-100 rounded'
-      >
-        <GripVertical className='w-4 h-4' />
-      </div>
-    </li>
-  )
-}
+import { initialValue } from '../data'
+import { SortableItem } from '../components/SortableItem'
 
 export default function Home() {
   const [items, setItems] = useState(initialValue)
@@ -85,7 +49,7 @@ export default function Home() {
         width='100vw'
         height='100vh'
       >
-        <div className='rounded shadow-lg bg-white p-4'>
+        <div className='rounded shadow-lg bg-white p-4 '>
           <DndContext
             sensors={sensors}
             collisionDetection={closestCenter}
