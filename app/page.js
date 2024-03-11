@@ -59,7 +59,7 @@ export default function Home() {
               items={items}
               strategy={verticalListSortingStrategy}
             >
-              <ul>
+              <ul className='flex flex-col gap-2'>
                 {items.map((item) => (
                   <SortableItem
                     key={item.id}

@@ -1,10 +1,4 @@
-import {
-  arrayMove,
-  SortableContext,
-  sortableKeyboardCoordinates,
-  useSortable,
-  verticalListSortingStrategy,
-} from '@dnd-kit/sortable'
+import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import { GripVertical } from 'lucide-react'
 export function SortableItem({ item }) {
@@ -27,7 +21,7 @@ export function SortableItem({ item }) {
       ref={setNodeRef}
       style={style}
       {...attributes}
-      className='p-2 flex gap-4 w-[250px]'
+      className='p-2 flex gap-4 min-w-[250px]  border-2 rounded-sm shadow-sm'
     >
       <div className='w-full select-none'>
         <h1 className='text-3xl'>{item.title}</h1>
@@ -40,6 +34,7 @@ export function SortableItem({ item }) {
       >
         <GripVertical className='w-4 h-4' />
       </div>
+      <button>🗑️</button>
     </li>
   )
 }
