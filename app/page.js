@@ -11,7 +11,6 @@ import {
   arrayMove,
   SortableContext,
   sortableKeyboardCoordinates,
- 
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable'
 
@@ -43,29 +42,27 @@ export default function Home() {
 
   return (
     <div className='w-full min-h-screen flex justify-center items-center'>
-     
-        <div className='rounded shadow-lg bg-white p-4 '>
-          <DndContext
-            sensors={sensors}
-            collisionDetection={closestCenter}
-            onDragEnd={handleDragEnd}
+      <div className='rounded shadow-lg bg-white p-4 '>
+        <DndContext
+          sensors={sensors}
+          collisionDetection={closestCenter}
+          onDragEnd={handleDragEnd}
+        >
+          <SortableContext
+            items={items}
+            strategy={verticalListSortingStrategy}
           >
-            <SortableContext
-              items={items}
-              strategy={verticalListSortingStrategy}
-            >
-              <ul className='flex flex-col gap-2'>
-                {items.map((item) => (
-                  <SortableItem
-                    key={item.id}
-                    item={item}
-                  />
-                ))}
-              </ul>
-            </SortableContext>
-          </DndContext>
-        </div>
-     
+            <ul className='flex flex-col gap-2'>
+              {items.map((item) => (
+                <SortableItem
+                  key={item.id}
+                  item={item}
+                />
+              ))}
+            </ul>
+          </SortableContext>
+        </DndContext>
+      </div>
     </div>
   )
 }
