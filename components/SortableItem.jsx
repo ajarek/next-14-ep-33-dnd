@@ -25,7 +25,6 @@ export function SortableItem({ item }) {
     >
       <div className='w-full select-none'>
         <h1 className='text-3xl'>{item.title}</h1>
-        <p>{item.description}</p>
       </div>
       <div
         {...listeners}
@@ -34,7 +33,7 @@ export function SortableItem({ item }) {
       >
         <GripVertical className='w-4 h-4' />
       </div>
-      <button>🗑️</button>
+      
     </li>
   )
 }

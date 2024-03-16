@@ -11,13 +11,12 @@ import {
   arrayMove,
   SortableContext,
   sortableKeyboardCoordinates,
-  useSortable,
+ 
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable'
-import { CSS } from '@dnd-kit/utilities'
-import { GripVertical } from 'lucide-react'
+
 import { useState } from 'react'
-import LinearGradient from '../components/LinearGradient'
+
 import { initialValue } from '../data'
 import { SortableItem } from '../components/SortableItem'
 
@@ -43,12 +42,8 @@ export default function Home() {
   }
 
   return (
-    <>
-      <LinearGradient
-        option={1}
-        width='100vw'
-        height='100vh'
-      >
+    <div className='w-full min-h-screen flex justify-center items-center'>
+     
         <div className='rounded shadow-lg bg-white p-4 '>
           <DndContext
             sensors={sensors}
@@ -70,7 +65,7 @@ export default function Home() {
             </SortableContext>
           </DndContext>
         </div>
-      </LinearGradient>
-    </>
+     
+    </div>
   )
 }
